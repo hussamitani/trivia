@@ -1,0 +1,97 @@
+{
+    "title": "Mixed General Knowledge Quiz",
+    "description": "Test your knowledge with this general knowledge quiz. Each question has one or more correct answers.",
+    "quiz": [
+        {
+            "type": "single",
+            "question": "What is the tallest animal in the world?",
+            "options": [
+                { "text": "Elephant", "is_correct": false },
+                { "text": "Giraffe", "is_correct": true },
+                { "text": "Lion", "is_correct": false }
+            ]
+        },
+        {
+            "type": "multiple",
+            "question": "Which of these are programming languages?",
+            "options": [
+                { "text": "Ruby", "is_correct": true },
+                { "text": "Python", "is_correct": true },
+                { "text": "Photoshop", "is_correct": false },
+                { "text": "C++", "is_correct": true }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "The Great Barrier Reef is located in Australia.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "Who is known as the father of computers?",
+            "options": [
+                { "text": "Charles Babbage", "is_correct": true },
+                { "text": "Isaac Newton", "is_correct": false },
+                { "text": "Albert Einstein", "is_correct": false }
+            ]
+        },
+        {
+            "type": "multiple",
+            "question": "Select all prime numbers.",
+            "options": [
+                { "text": "2", "is_correct": true },
+                { "text": "4", "is_correct": false },
+                { "text": "5", "is_correct": true },
+                { "text": "9", "is_correct": false },
+                { "text": "11", "is_correct": true }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "The chemical symbol for silver is Ag.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "What is the capital city of Canada?",
+            "options": [
+                { "text": "Toronto", "is_correct": false },
+                { "text": "Ottawa", "is_correct": true },
+                { "text": "Vancouver", "is_correct": false }
+            ]
+        },
+        {
+            "type": "multiple",
+            "question": "Which of these are mammals?",
+            "options": [
+                { "text": "Whale", "is_correct": true },
+                { "text": "Crocodile", "is_correct": false },
+                { "text": "Bat", "is_correct": true },
+                { "text": "Frog", "is_correct": false }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Venus is the hottest planet in our solar system.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "Which element has the atomic number 1?",
+            "options": [
+                { "text": "Oxygen", "is_correct": false },
+                { "text": "Hydrogen", "is_correct": true },
+                { "text": "Helium", "is_correct": false }
+            ]
+        }
+    ]
+}

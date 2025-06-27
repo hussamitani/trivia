@@ -1,0 +1,106 @@
+{
+    "title": "General Knowledge Quiz",
+    "description": "Test your knowledge with this general knowledge quiz. Each question has one correct answer.",
+    "quiz": [
+        {
+            "type": "single",
+            "question": "What is the capital of France?",
+            "options": [
+                { "text": "Berlin", "is_correct": false },
+                { "text": "Madrid", "is_correct": false },
+                { "text": "Paris", "is_correct": true },
+                { "text": "Rome", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "Which planet is known as the Red Planet?",
+            "options": [
+                { "text": "Earth", "is_correct": false },
+                { "text": "Mars", "is_correct": true },
+                { "text": "Jupiter", "is_correct": false },
+                { "text": "Venus", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "Who wrote 'Hamlet'?",
+            "options": [
+                { "text": "Charles Dickens", "is_correct": false },
+                { "text": "William Shakespeare", "is_correct": true },
+                { "text": "Mark Twain", "is_correct": false },
+                { "text": "Jane Austen", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "What is the largest ocean on Earth?",
+            "options": [
+                { "text": "Atlantic Ocean", "is_correct": false },
+                { "text": "Indian Ocean", "is_correct": false },
+                { "text": "Arctic Ocean", "is_correct": false },
+                { "text": "Pacific Ocean", "is_correct": true }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "What is the chemical symbol for water?",
+            "options": [
+                { "text": "O2", "is_correct": false },
+                { "text": "H2O", "is_correct": true },
+                { "text": "CO2", "is_correct": false },
+                { "text": "NaCl", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "Which country hosted the 2016 Summer Olympics?",
+            "options": [
+                { "text": "China", "is_correct": false },
+                { "text": "Brazil", "is_correct": true },
+                { "text": "UK", "is_correct": false },
+                { "text": "Russia", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "What is the hardest natural substance?",
+            "options": [
+                { "text": "Gold", "is_correct": false },
+                { "text": "Iron", "is_correct": false },
+                { "text": "Diamond", "is_correct": true },
+                { "text": "Silver", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "Who painted the Mona Lisa?",
+            "options": [
+                { "text": "Vincent van Gogh", "is_correct": false },
+                { "text": "Pablo Picasso", "is_correct": false },
+                { "text": "Leonardo da Vinci", "is_correct": true },
+                { "text": "Claude Monet", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "What is the smallest prime number?",
+            "options": [
+                { "text": "0", "is_correct": false },
+                { "text": "1", "is_correct": false },
+                { "text": "2", "is_correct": true },
+                { "text": "3", "is_correct": false }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "Which language is primarily spoken in Brazil?",
+            "options": [
+                { "text": "Spanish", "is_correct": false },
+                { "text": "Portuguese", "is_correct": true },
+                { "text": "French", "is_correct": false },
+                { "text": "English", "is_correct": false }
+            ]
+        }
+    ]
+}

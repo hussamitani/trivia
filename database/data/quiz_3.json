@@ -1,0 +1,126 @@
+{
+    "title": "General Knowledge Quiz",
+    "description": "Test your knowledge with this general knowledge quiz. Each question has a true or false answer.",
+    "quiz": [
+        {
+            "type": "boolean",
+            "question": "The Earth revolves around the Sun.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Water boils at 90°C at sea level.",
+            "options": [
+                { "text": "True", "is_correct": false },
+                { "text": "False", "is_correct": true }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "The chemical symbol for gold is Au.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Bats are mammals.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "The Great Wall of China is visible from the Moon.",
+            "options": [
+                { "text": "True", "is_correct": false },
+                { "text": "False", "is_correct": true }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Lightning never strikes the same place twice.",
+            "options": [
+                { "text": "True", "is_correct": false },
+                { "text": "False", "is_correct": true }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Venus is the closest planet to the Sun.",
+            "options": [
+                { "text": "True", "is_correct": false },
+                { "text": "False", "is_correct": true }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Shakespeare wrote 'Romeo and Juliet'.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "The human body has four lungs.",
+            "options": [
+                { "text": "True", "is_correct": false },
+                { "text": "False", "is_correct": true }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Mount Everest is the tallest mountain on Earth.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Sound travels faster than light.",
+            "options": [
+                { "text": "True", "is_correct": false },
+                { "text": "False", "is_correct": true }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "The Pacific Ocean is the largest ocean on Earth.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Penguins can fly.",
+            "options": [
+                { "text": "True", "is_correct": false },
+                { "text": "False", "is_correct": true }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "The capital of Italy is Rome.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Diamonds are made of carbon.",
+            "options": [
+                { "text": "True", "is_correct": true },
+                { "text": "False", "is_correct": false }
+            ]
+        }
+    ]
+}
