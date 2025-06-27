@@ -1,214 +1,534 @@
 {
-    "title": "General Knowledge Quiz",
-    "description": "Test your knowledge with this general knowledge quiz. Each question has one or more correct answers.",
+    "title": "General Knowledge Quiz: Single & Multiple Select",
+    "description": "Test your knowledge with this general knowledge quiz! Questions are either single-select (only one correct answer) or multiple-select (more than one correct answer). See how many you can get right!",
     "quiz": [
         {
             "type": "multiple",
             "question": "Which of these are programming languages?",
             "options": [
-                { "text": "Python", "is_correct": true },
-                { "text": "HTML", "is_correct": false },
-                { "text": "CSS", "is_correct": false },
-                { "text": "Java", "is_correct": true }
+                {
+                    "text": "Python",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "HTML",
+                    "is_correct": false
+                },
+                {
+                    "text": "CSS",
+                    "is_correct": false
+                },
+                {
+                    "text": "Java",
+                    "is_correct": true,
+                    "points": 1
+                }
             ]
         },
         {
             "type": "single",
             "question": "What is the capital of Japan?",
             "options": [
-                { "text": "Tokyo", "is_correct": true },
-                { "text": "Beijing", "is_correct": false }
+                {
+                    "text": "Tokyo",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Beijing",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Select the prime numbers.",
             "options": [
-                { "text": "2", "is_correct": true },
-                { "text": "3", "is_correct": true },
-                { "text": "4", "is_correct": false },
-                { "text": "5", "is_correct": true },
-                { "text": "6", "is_correct": false }
+                {
+                    "text": "2",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "3",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "4",
+                    "is_correct": false
+                },
+                {
+                    "text": "5",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "6",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which animals are mammals?",
             "options": [
-                { "text": "Shark", "is_correct": false },
-                { "text": "Dolphin", "is_correct": true },
-                { "text": "Eagle", "is_correct": false },
-                { "text": "Bat", "is_correct": true }
+                {
+                    "text": "Shark",
+                    "is_correct": false
+                },
+                {
+                    "text": "Dolphin",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Eagle",
+                    "is_correct": false
+                },
+                {
+                    "text": "Bat",
+                    "is_correct": true,
+                    "points": 1
+                }
             ]
         },
         {
             "type": "single",
             "question": "What is the boiling point of water at sea level (°C)?",
             "options": [
-                { "text": "90", "is_correct": false },
-                { "text": "100", "is_correct": true },
-                { "text": "110", "is_correct": false }
+                {
+                    "text": "90",
+                    "is_correct": false
+                },
+                {
+                    "text": "100",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "110",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which of these are web browsers?",
             "options": [
-                { "text": "Chrome", "is_correct": true },
-                { "text": "Firefox", "is_correct": true },
-                { "text": "Windows", "is_correct": false },
-                { "text": "Safari", "is_correct": true },
-                { "text": "Linux", "is_correct": false }
+                {
+                    "text": "Chrome",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Firefox",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Windows",
+                    "is_correct": false
+                },
+                {
+                    "text": "Safari",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Linux",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "single",
             "question": "Who wrote '1984'?",
             "options": [
-                { "text": "George Orwell", "is_correct": true },
-                { "text": "Aldous Huxley", "is_correct": false },
-                { "text": "J.K. Rowling", "is_correct": false }
+                {
+                    "text": "George Orwell",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Aldous Huxley",
+                    "is_correct": false
+                },
+                {
+                    "text": "J.K. Rowling",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which are fruits?",
             "options": [
-                { "text": "Carrot", "is_correct": false },
-                { "text": "Apple", "is_correct": true },
-                { "text": "Banana", "is_correct": true },
-                { "text": "Potato", "is_correct": false },
-                { "text": "Tomato", "is_correct": true }
+                {
+                    "text": "Carrot",
+                    "is_correct": false
+                },
+                {
+                    "text": "Apple",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Banana",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Potato",
+                    "is_correct": false
+                },
+                {
+                    "text": "Tomato",
+                    "is_correct": true,
+                    "points": 1
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which numbers are even?",
             "options": [
-                { "text": "1", "is_correct": false },
-                { "text": "2", "is_correct": true },
-                { "text": "3", "is_correct": false },
-                { "text": "4", "is_correct": true },
-                { "text": "5", "is_correct": false },
-                { "text": "6", "is_correct": true }
+                {
+                    "text": "1",
+                    "is_correct": false
+                },
+                {
+                    "text": "2",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "3",
+                    "is_correct": false
+                },
+                {
+                    "text": "4",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "5",
+                    "is_correct": false
+                },
+                {
+                    "text": "6",
+                    "is_correct": true,
+                    "points": 1
+                }
             ]
         },
         {
             "type": "single",
             "question": "What is the largest planet in our solar system?",
             "options": [
-                { "text": "Earth", "is_correct": false },
-                { "text": "Jupiter", "is_correct": true },
-                { "text": "Saturn", "is_correct": false }
+                {
+                    "text": "Earth",
+                    "is_correct": false
+                },
+                {
+                    "text": "Jupiter",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Saturn",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which of these are colors in the rainbow?",
             "options": [
-                { "text": "Red", "is_correct": true },
-                { "text": "Pink", "is_correct": false },
-                { "text": "Blue", "is_correct": true },
-                { "text": "Green", "is_correct": true },
-                { "text": "Brown", "is_correct": false }
+                {
+                    "text": "Red",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Pink",
+                    "is_correct": false
+                },
+                {
+                    "text": "Blue",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Green",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Brown",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which are programming paradigms?",
             "options": [
-                { "text": "Object-oriented", "is_correct": true },
-                { "text": "Procedural", "is_correct": true },
-                { "text": "Relational", "is_correct": false },
-                { "text": "Functional", "is_correct": true }
+                {
+                    "text": "Object-oriented",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Procedural",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Relational",
+                    "is_correct": false
+                },
+                {
+                    "text": "Functional",
+                    "is_correct": true,
+                    "points": 1
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which of these are continents?",
             "options": [
-                { "text": "Asia", "is_correct": true },
-                { "text": "Africa", "is_correct": true },
-                { "text": "Greenland", "is_correct": false },
-                { "text": "Europe", "is_correct": true },
-                { "text": "Australia", "is_correct": true },
-                { "text": "Antarctica", "is_correct": true },
-                { "text": "South America", "is_correct": true },
-                { "text": "North America", "is_correct": true }
+                {
+                    "text": "Asia",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Africa",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Greenland",
+                    "is_correct": false
+                },
+                {
+                    "text": "Europe",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Australia",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Antarctica",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "South America",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "North America",
+                    "is_correct": true,
+                    "points": 1
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which of these are valid HTTP methods?",
             "options": [
-                { "text": "GET", "is_correct": true },
-                { "text": "POST", "is_correct": true },
-                { "text": "FETCH", "is_correct": false },
-                { "text": "PUT", "is_correct": true },
-                { "text": "DELETE", "is_correct": true }
+                {
+                    "text": "GET",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "POST",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "FETCH",
+                    "is_correct": false
+                },
+                {
+                    "text": "PUT",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "DELETE",
+                    "is_correct": true,
+                    "points": 1
+                }
             ]
         },
         {
             "type": "single",
             "question": "Who painted 'Starry Night'?",
             "options": [
-                { "text": "Vincent van Gogh", "is_correct": true },
-                { "text": "Pablo Picasso", "is_correct": false }
+                {
+                    "text": "Vincent van Gogh",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Pablo Picasso",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which of these are JavaScript frameworks?",
             "options": [
-                { "text": "React", "is_correct": true },
-                { "text": "Laravel", "is_correct": false },
-                { "text": "Vue", "is_correct": true },
-                { "text": "Django", "is_correct": false },
-                { "text": "Angular", "is_correct": true }
+                {
+                    "text": "React",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Laravel",
+                    "is_correct": false
+                },
+                {
+                    "text": "Vue",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Django",
+                    "is_correct": false
+                },
+                {
+                    "text": "Angular",
+                    "is_correct": true,
+                    "points": 1
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which are valid file extensions for images?",
             "options": [
-                { "text": "jpg", "is_correct": true },
-                { "text": "png", "is_correct": true },
-                { "text": "exe", "is_correct": false },
-                { "text": "gif", "is_correct": true },
-                { "text": "bmp", "is_correct": true },
-                { "text": "pdf", "is_correct": false }
+                {
+                    "text": "jpg",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "png",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "exe",
+                    "is_correct": false
+                },
+                {
+                    "text": "gif",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "bmp",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "pdf",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which of these are planets?",
             "options": [
-                { "text": "Pluto", "is_correct": false },
-                { "text": "Mars", "is_correct": true },
-                { "text": "Venus", "is_correct": true },
-                { "text": "Sun", "is_correct": false }
+                {
+                    "text": "Pluto",
+                    "is_correct": false
+                },
+                {
+                    "text": "Mars",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Venus",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Sun",
+                    "is_correct": false
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which of these are open-source operating systems?",
             "options": [
-                { "text": "Windows", "is_correct": false },
-                { "text": "Linux", "is_correct": true },
-                { "text": "macOS", "is_correct": false },
-                { "text": "FreeBSD", "is_correct": true }
+                {
+                    "text": "Windows",
+                    "is_correct": false
+                },
+                {
+                    "text": "Linux",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "macOS",
+                    "is_correct": false
+                },
+                {
+                    "text": "FreeBSD",
+                    "is_correct": true,
+                    "points": 1
+                }
             ]
         },
         {
             "type": "multiple",
             "question": "Which of these are valid CSS units?",
             "options": [
-                { "text": "px", "is_correct": true },
-                { "text": "em", "is_correct": true },
-                { "text": "kg", "is_correct": false },
-                { "text": "rem", "is_correct": true },
-                { "text": "cm", "is_correct": true },
-                { "text": "sec", "is_correct": false }
+                {
+                    "text": "px",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "em",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "kg",
+                    "is_correct": false
+                },
+                {
+                    "text": "rem",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "cm",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "sec",
+                    "is_correct": false
+                }
             ]
         }
     ]

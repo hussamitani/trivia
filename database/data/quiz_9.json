@@ -1,0 +1,44 @@
+{
+    "title": "Double Single-Select Quiz",
+    "description": "A quiz with two single-select questions.",
+    "quiz": [
+        {
+            "type": "single",
+            "question": "What is the chemical symbol for sodium?",
+            "options": [
+                {
+                    "text": "Na",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "S",
+                    "is_correct": false
+                },
+                {
+                    "text": "So",
+                    "is_correct": false
+                }
+            ]
+        },
+        {
+            "type": "single",
+            "question": "Who developed the theory of relativity?",
+            "options": [
+                {
+                    "text": "Isaac Newton",
+                    "is_correct": false
+                },
+                {
+                    "text": "Albert Einstein",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Nikola Tesla",
+                    "is_correct": false
+                }
+            ]
+        }
+    ]
+}

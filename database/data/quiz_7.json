@@ -1,0 +1,21 @@
+{
+    "title": "Quick True/False Quiz",
+    "description": "A quiz with a single true/false question.",
+    "quiz": [
+        {
+            "type": "boolean",
+            "question": "The speed of light is faster than the speed of sound.",
+            "options": [
+                {
+                    "text": "True",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "False",
+                    "is_correct": false
+                }
+            ]
+        }
+    ]
+}

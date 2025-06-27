@@ -20,6 +20,12 @@ class QuizSeeder extends Seeder
         $this->importQuiz(database_path('data/quiz_2.json'));
         $this->importQuiz(database_path('data/quiz_3.json'));
         $this->importQuiz(database_path('data/quiz_4.json'));
+        $this->importQuiz(database_path('data/quiz_5.json'));
+        $this->importQuiz(database_path('data/quiz_6.json'));
+        $this->importQuiz(database_path('data/quiz_7.json'));
+        $this->importQuiz(database_path('data/quiz_8.json'));
+        $this->importQuiz(database_path('data/quiz_9.json'));
+        $this->importQuiz(database_path('data/quiz_10.json'));
     }
 
     public function importQuiz(string $path): void
@@ -48,6 +54,7 @@ class QuizSeeder extends Seeder
                     'text' => $option['text'],
                     'is_correct' => $option['is_correct'] ?? false,
                     'sort_order' => $optionSortOrder++,
+                    'points' => $option['is_correct'] ? $option['points'] : 0,
                 ]);
             }
         }

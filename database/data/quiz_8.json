@@ -1,0 +1,65 @@
+{
+    "title": "Sample Mixed Quiz",
+    "description": "A quiz with one single-select, one multi-select, and one true/false question.",
+    "quiz": [
+        {
+            "type": "single",
+            "question": "Which planet is closest to the Sun?",
+            "options": [
+                {
+                    "text": "Venus",
+                    "is_correct": false
+                },
+                {
+                    "text": "Mercury",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Earth",
+                    "is_correct": false
+                }
+            ]
+        },
+        {
+            "type": "multiple",
+            "question": "Which of these are programming languages?",
+            "options": [
+                {
+                    "text": "JavaScript",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Python",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Excel",
+                    "is_correct": false
+                },
+                {
+                    "text": "Ruby",
+                    "is_correct": true,
+                    "points": 1
+                }
+            ]
+        },
+        {
+            "type": "boolean",
+            "question": "Mount Everest is the tallest mountain on Earth.",
+            "options": [
+                {
+                    "text": "True",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "False",
+                    "is_correct": false
+                }
+            ]
+        }
+    ]
+}

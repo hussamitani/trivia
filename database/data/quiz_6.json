@@ -1,0 +1,39 @@
+{
+    "title": "Quick multi select quiz",
+    "description": "A quiz with a single question and 3 correct answers",
+    "quiz": [
+        {
+            "type": "single",
+            "question": "What is a unit for measuring temperature?",
+            "options": [
+                {
+                    "text": "Fahrenheit",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Celsius",
+                    "is_correct": true,
+                    "points": 1
+                },
+                {
+                    "text": "Kilometer",
+                    "is_correct": false
+                },
+                {
+                    "text": "Miles",
+                    "is_correct": false
+                },
+                {
+                    "text": "Liter",
+                    "is_correct": false
+                },
+                {
+                    "text": "Kelvin",
+                    "is_correct": true,
+                    "points": 1
+                }
+            ]
+        }
+    ]
+}

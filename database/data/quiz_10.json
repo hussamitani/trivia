@@ -1,0 +1,26 @@
+{
+    "title": "Double Multi-Select Quiz",
+    "description": "A quiz with two multi-select questions.",
+    "quiz": [
+        {
+            "type": "multiple",
+            "question": "Which of these are mammals?",
+            "options": [
+                { "text": "Dog", "is_correct": true, "points": 1 },
+                { "text": "Crocodile", "is_correct": false },
+                { "text": "Whale", "is_correct": true, "points": 1 },
+                { "text": "Eagle", "is_correct": false }
+            ]
+        },
+        {
+            "type": "multiple",
+            "question": "Which of these are prime numbers?",
+            "options": [
+                { "text": "2", "is_correct": true, "points": 1 },
+                { "text": "4", "is_correct": false },
+                { "text": "5", "is_correct": true, "points": 1 },
+                { "text": "9", "is_correct": false }
+            ]
+        }
+    ]
+}

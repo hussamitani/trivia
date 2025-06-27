@@ -3,25 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quiz;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 
 class QuizController extends Controller
 {
-    public function index()
+    public function index(): View|Application|Factory
     {
         return view('pages.quizzes', ['quizzes' => Quiz::all()]);
-    }
-
-    public function show(Quiz $quiz, Request $request)
-    {
-
-        return Quiz::query()->where('id', $quiz->id)
-            ->with('attempts', function (HasMany $query) use ($request) {
-                $query->where('user_id', $request->user()->id);
-            })
-            ->with('questions.options')
-            ->first();
-
     }
 }

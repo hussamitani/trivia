@@ -13,6 +13,5 @@ Route::get('login', function () {
 })->name('login');
 
 Route::get('quizzes', [QuizController::class, 'index']);
-Route::get('quizzes/{quiz}', [QuizController::class, 'show'])->middleware('auth');
 Route::get('quizzes/{quiz}/attempt', [AttemptController::class, 'new'])->middleware('auth')->name('quiz.attempt');
 Route::get('attempt/{attempt}', [AttemptController::class, 'view'])->middleware('auth')->name('attempt.view');

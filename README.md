@@ -1,61 +1,121 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Filament Trivia Game
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Welcome to **Trivia** by Hussam!  
+This project is built with Laravel and Filament PHP.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Filament PHP Dashboard for managing Quizzes and Reviewing Attempts
+- Frontend to see available Quizzes (Blade)
+- Attempting a Quiz (Livewire component)
+- Reviewing score right after submitting (Blade)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Docker
 
-## Learning Laravel
+## Setup
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+> Run with Herd or follow instructions
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/hussamitani/trivia.git
+   cd your-repo
+   ```
+2. Install composer packages
+   ```sh
+   composer install --ignore-platform-reqs
+   ```
+3. Generate certificates using [mkcert](https://github.com/FiloSottile/mkcert) :
+   If it's the first install of mkcert, run
+   ```sh
+   cd traefik
+   mkcert -install
+   ```
+4. Generate local SSL keys
+   ```sh
+   cd traefik
+   mkcert -cert-file certs/local-cert.pem -key-file certs/local-key.pem "trivia.docker.localhost"
+   ```
+5. Start Docker Container
+   ```sh
+   ./vendor/bin/sail up -d
+   ```
+6. Run migrations and seeder
+   ```sh
+   ./vendor/bin/sail artisan migrate:fresh --seed
+   ```
+7. Add domain to your hosts file (If you are on windows, do this manually)
+   ```sh
+   sudo echo '127.0.0.1 \t trivia.docker.localhost' >> /etc/hosts
+   ```
+8. Visit https://trivia.docker.localhost/login and login with the following credentials
+   > test@example.com
+   >
+   > password
+9. Try out the Quizzes.  
+   Go to https://trivia.docker.localhost/login/quizzes and play any of the quizzes.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Score calculation
+I implemented the `final_score` calculation into the [CalculateAttemptPointsListener](app/Listeners/CalculateAttemptPointsListener.php).
+The `getPointsForCorrectChoices` method calculates the points you made. The `getNegativePointsForWronglySelectedChoices` subtracts points for wrong choices, the `getMissedPointsForNotSelectedChoices` subtracts points for correct options you missed to select. You can play around with this class to manipulate scores. You don't have to submit attempts again. You can go to the Filament Dashboard and click **'Calculate'** to recalculate the final score.
 
-## Laravel Sponsors
+The Listener does not implement the ShouldQueue interface. If you like, you can undo the comment. You need to run the queue worker for it to work with `./vendor/bin/sail artisan queue:work`.
+```php
+public function handle(QuizAttemptSubmitted $event): void
+{
+    $quiz = $event->attempt->quiz;
+    $choices = $event->attempt->choices;
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    $points = 0;
+    foreach ($quiz->questions as $question) {
+        $temp = 0;
+        $questionChoice = $choices->where('question_id', $question->id)->first();
+        $selectedOptions = $questionChoice->selected_options;
+        $temp += $this->getPointsForCorrectChoices($question, $selectedOptions);
+        $temp -= $this->getMissedPointsForNotSelectedChoices($question, $selectedOptions);
+        $temp -= $this->getNegativePointsForWronglySelectedChoices($question, $selectedOptions);
 
-### Premium Partners
+        $points += max(0, $temp);
+    }
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+    $event->attempt->update([
+        'final_score' => max(0, $points),
+    ]);
+}
 
-## Contributing
+public function getPointsForCorrectChoices(mixed $question, array $selectedOptions): mixed
+{
+    return $question->options
+        ->where('is_correct', true)
+        ->whereIn('id', $selectedOptions)
+        ->pluck('points')
+        ->sum();
+}
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+public function getMissedPointsForNotSelectedChoices(mixed $question, array $selectedOptions): mixed
+{
+    return $question->options
+        ->where('is_correct', true)
+        ->whereNotIn('id', $selectedOptions)
+        ->pluck('points')
+        ->sum();
+}
 
-## Code of Conduct
+private function getNegativePointsForWronglySelectedChoices(mixed $question, array $selectedOptions)
+{
+    return $question->options
+        ->where('is_correct', false)
+        ->whereIn('id', $selectedOptions)
+        ->count();
+}
+```
+If you fell like storing the score in the database is not necessary, you can implement an Attribute cast in the Attempt model.
+But be aware that you quickly run into the N+1 problem when you fetch a list of attempts.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Good luck and have fun :)
 
-## Security Vulnerabilities
+Feel free to clone this repository and use for commercial/non-commercial use
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+For questions please contact me at bonn.software@gmail.com

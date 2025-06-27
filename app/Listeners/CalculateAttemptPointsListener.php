@@ -4,9 +4,8 @@ namespace App\Listeners;
 
 use App\Events\QuizAttemptSubmitted;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Support\Facades\Log;
 
-class CalculateAttemptPoints // implements ShouldQueue
+class CalculateAttemptPointsListener // implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -21,10 +20,6 @@ class CalculateAttemptPoints // implements ShouldQueue
      */
     public function handle(QuizAttemptSubmitted $event): void
     {
-        Log::info('CalculateAttemptPoints: '.$event->attempt);
-        Log::info('Choices: '.$event->attempt->choices);
-        Log::info('Options: '.$event->attempt->quiz->questions->pluck('options'));
-
         $quiz = $event->attempt->quiz;
         $choices = $event->attempt->choices;
 
