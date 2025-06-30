@@ -46,7 +46,7 @@
                                     @if($isSelected && $isCorrect)
                                         (+{{$option->points}} point)
                                     @elseif($isCorrect)
-                                        (-{{$option->points}} point)
+                                        ({{$option->points}} point missed)
                                     @elseif($isSelected)
                                         (-1 point)
                                     @endif

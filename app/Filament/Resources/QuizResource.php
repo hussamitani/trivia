@@ -11,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class QuizResource extends Resource
 {
@@ -53,6 +54,7 @@ class QuizResource extends Resource
                                 Forms\Components\TextInput::make('points')
                                     ->required()
                                     ->numeric()
+                                    ->minValue(0)
                                     ->default(0),
                             ]),
                     ]),
@@ -65,6 +67,8 @@ class QuizResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('questions_count'),
+                Tables\Columns\TextColumn::make('attempts_count'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -93,6 +97,13 @@ class QuizResource extends Resource
         return [
             AttemptsRelationManager::class,
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withCount('questions')
+            ->withCount('attempts');
     }
 
     public static function getPages(): array

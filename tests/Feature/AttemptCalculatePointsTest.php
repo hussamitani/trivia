@@ -29,7 +29,7 @@ class AttemptCalculatePointsTest extends TestCase
         self::assertEquals(2, Option::query()->count());
     }
 
-    public function test_attempt_quiz()
+    public function test_attempt_quiz_success()
     {
         $quiz = $this->setupQuiz();
 
@@ -40,17 +40,47 @@ class AttemptCalculatePointsTest extends TestCase
             'ended_at' => now(),
         ]);
 
-        $attempt->choices()->create([
-            'question_id' => $quiz->questions->first()->id,
-            'selected_options' => [$quiz->questions->first()->options->first()->id],
-        ]);
+        foreach ($quiz->questions as $question) {
+            $option_id = $question->options->where('is_correct', true)->first()->id;
+            $attempt->choices()->create([
+                'question_id' => $question->id,
+                'selected_options' => [$option_id],
+            ]);
+        }
 
         self::assertEquals(1, Attempt::query()->count());
         self::assertEquals(1, Choice::query()->count());
 
         self::assertEquals(0, $attempt->final_score);
         event(new QuizAttemptSubmitted($attempt));
-        self::assertEquals(2, $attempt->final_score);
+        self::assertEquals(1, $attempt->final_score);
+    }
+
+    public function test_attempt_quiz_fail()
+    {
+        $quiz = $this->setupQuiz();
+
+        $attempt = Attempt::create([
+            'quiz_id' => $quiz->id,
+            'user_id' => User::factory()->create()->id,
+            'started_at' => now()->subMinutes(5),
+            'ended_at' => now(),
+        ]);
+
+        foreach ($quiz->questions as $question) {
+            $option_id = $question->options->where('is_correct', false)->first()->id;
+            $attempt->choices()->create([
+                'question_id' => $question->id,
+                'selected_options' => [$option_id],
+            ]);
+        }
+
+        self::assertEquals(1, Attempt::query()->count());
+        self::assertEquals(1, Choice::query()->count());
+
+        self::assertEquals(0, $attempt->final_score);
+        event(new QuizAttemptSubmitted($attempt));
+        self::assertEquals(0, $attempt->final_score);
     }
 
     public function setupQuiz(): Quiz
@@ -65,11 +95,13 @@ class AttemptCalculatePointsTest extends TestCase
 
         $question->options()->create([
             'text' => '4',
-            'points' => '2',
+            'is_correct' => true,
+            'points' => '1',
         ]);
 
         $question->options()->create([
             'text' => '5',
+            'is_correct' => false,
             'points' => '0',
         ]);
 

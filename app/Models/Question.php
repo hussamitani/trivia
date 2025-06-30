@@ -6,12 +6,15 @@ use App\Enums\QuestionType;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
  * @property int $quiz_id
  * @property string $text
  * @property QuestionType $type
+ * @property int $sort_order
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Choice> $choices
@@ -28,6 +31,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Question whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Question whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Question whereQuizId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Question whereSortOrder($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Question whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Question whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Question whereUpdatedAt($value)
@@ -60,17 +64,17 @@ class Question extends Model
         );
     }
 
-    public function quiz(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function quiz(): BelongsTo
     {
         return $this->belongsTo(Quiz::class);
     }
 
-    public function options(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function options(): HasMany
     {
         return $this->hasMany(Option::class)->orderBy('sort_order', 'asc');
     }
 
-    public function choices(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function choices(): HasMany
     {
         return $this->hasMany(Choice::class);
     }

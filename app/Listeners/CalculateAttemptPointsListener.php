@@ -29,8 +29,8 @@ class CalculateAttemptPointsListener // implements ShouldQueue
             $questionChoice = $choices->where('question_id', $question->id)->first();
             $selectedOptions = $questionChoice->selected_options;
             $temp += $this->getPointsForCorrectChoices($question, $selectedOptions);
-            $temp -= $this->getMissedPointsForNotSelectedChoices($question, $selectedOptions);
             $temp -= $this->getNegativePointsForWronglySelectedChoices($question, $selectedOptions);
+            // $temp -= $this->getMissedPointsForNotSelectedCorrectOptions($question, $selectedOptions);
 
             $points += max(0, $temp);
         }
@@ -49,7 +49,7 @@ class CalculateAttemptPointsListener // implements ShouldQueue
             ->sum();
     }
 
-    public function getMissedPointsForNotSelectedChoices(mixed $question, array $selectedOptions): mixed
+    public function getMissedPointsForNotSelectedCorrectOptions(mixed $question, array $selectedOptions): mixed
     {
         return $question->options
             ->where('is_correct', true)
