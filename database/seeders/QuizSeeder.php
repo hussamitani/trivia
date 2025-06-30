@@ -26,6 +26,7 @@ class QuizSeeder extends Seeder
         $this->importQuiz(database_path('data/quiz_8.json'));
         $this->importQuiz(database_path('data/quiz_9.json'));
         $this->importQuiz(database_path('data/quiz_10.json'));
+        $this->importQuiz(database_path('data/quiz_isaqb.json'));
     }
 
     public function importQuiz(string $path): void
@@ -44,8 +45,10 @@ class QuizSeeder extends Seeder
                 'quiz_id' => $quiz->id,
                 'text' => $questions['question'],
                 'type' => QuestionType::tryFrom($questions['type']),
-                'sort_order' => $questionSortOrder++,
+                'sort_order' => $question['sort_order'] ?? $questionSortOrder,
             ]);
+
+            $questionSortOrder++;
 
             $optionSortOrder = 0;
             foreach ($questions['options'] as $option) {
@@ -53,9 +56,11 @@ class QuizSeeder extends Seeder
                     'question_id' => $question->id,
                     'text' => $option['text'],
                     'is_correct' => $option['is_correct'] ?? false,
-                    'sort_order' => $optionSortOrder++,
+                    'sort_order' => $option['sort_order'] ?? $optionSortOrder,
                     'points' => $option['is_correct'] ? $option['points'] : 0,
                 ]);
+
+                $optionSortOrder++;
             }
         }
     }
