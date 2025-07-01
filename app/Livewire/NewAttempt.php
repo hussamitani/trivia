@@ -16,9 +16,17 @@ class NewAttempt extends Component
 
     public Carbon $started_at;
 
+    public string $time = '00:00:00';
+
+    public function updateElapsed(): void
+    {
+        $this->time = now()->diff($this->started_at)->format('%H:%I:%S');
+    }
+
     public function mount()
     {
         $this->started_at = Carbon::now();
+        $this->time = now()->diff($this->started_at)->format('%H:%I:%S');
         $this->quiz = Quiz::query()->find($this->quiz_id)
             ->load('questions.options')
             ->load(['attempts' => function ($query) {

@@ -26,7 +26,6 @@ class QuizSeeder extends Seeder
         $this->importQuiz(database_path('data/quiz_8.json'));
         $this->importQuiz(database_path('data/quiz_9.json'));
         $this->importQuiz(database_path('data/quiz_10.json'));
-        $this->importQuiz(database_path('data/quiz_isaqb.json'));
     }
 
     public function importQuiz(string $path): void

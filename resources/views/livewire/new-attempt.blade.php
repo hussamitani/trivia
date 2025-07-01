@@ -6,7 +6,9 @@
         $correctCount = $question->options->where('is_correct', true)->count();
         $selectionLimitReached = $isMultiple && is_array($selected) && count($selected) >= $correctCount;
     @endphp
-
+    <div wire:poll.1s="updateElapsed" class="mb-2 text-right text-gray-500">
+        {{ $time }}
+    </div>
     <div class="mb-4 text-gray-600 text-center">
         Question {{ $currentQuestion + 1 }} of {{ $quiz->questions->count() }}
     </div>

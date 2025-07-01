@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('text');
             $table->boolean('is_correct')->default(false); // Indicates if this option is the correct answer
             $table->integer('sort_order')->default(0); // To maintain the order of options
-            $table->integer('points')->default(0); // Points awarded for selecting this option, if applicable
+            $table->float('points', 10)->default(0); // Points awarded for selecting this option, if applicable
             $table->timestamps();
         });
     }

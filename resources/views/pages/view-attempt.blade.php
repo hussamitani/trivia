@@ -4,9 +4,10 @@
         <br>
         <div class="card mb-4">
             <div class="card-body">
-                <h1 class="card-title text-3xl text-center">{{ $attempt->quiz->title }}</h1>
-                <p class="mb-1"><strong>User:</strong> {{ $attempt->user->name }}</p>
-                <p class="mb-0"><strong>Score:</strong> {{ $attempt->final_score }} / {{ $attempt->quiz->questions->pluck('options')->flatten()->sum('points') }}</p>
+                <h1 class="mb-2 card-title text-3xl text-center">{{ $attempt->quiz->title }}</h1>
+                <p class="mb-0"><strong>User:</strong> {{ $attempt->user->name }}</p>
+                <p class="mb-0"><strong>Score:</strong> {{ round($attempt->final_score, 2) }} / {{ round($attempt->quiz->questions->pluck('options')->flatten()->sum('points')) }}</p>
+                <p class="mb-0"><strong>Time:</strong> {{ $attempt->started_at->diff($attempt->ended_at)->format('%H:%I:%S') }}</p>
             </div>
         </div>
         <hr>
