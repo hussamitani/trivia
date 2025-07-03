@@ -28,7 +28,7 @@
                     @foreach($question->options as $option)
                         @php
                             $choice = $attempt->choices->where('question_id', $question->id)->first();
-                            $isSelected = in_array($option->id, $choice->selected_options);
+                            $isSelected = in_array($option->id, $choice->selected_options ?? []);
                             $isCorrect = $option->is_correct;
                             $btnClasses = 'w-full px-4 py-2 rounded border text-left cursor-default flex items-center gap-2 ';
                             if($isSelected && $isCorrect) {

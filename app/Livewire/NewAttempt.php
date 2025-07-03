@@ -74,8 +74,15 @@ class NewAttempt extends Component
         }
     }
 
-    public function submit()
+    public function submit(): void
     {
+        // Ensure all questions are present in answers
+        foreach ($this->quiz->questions as $question) {
+            if (!array_key_exists($question->id, $this->answers)) {
+                $this->answers[$question->id] = [];
+            }
+        }
+
         $attempt = Attempt::create([
             'quiz_id' => $this->quiz->id,
             'user_id' => auth()->user()->id,
@@ -84,17 +91,18 @@ class NewAttempt extends Component
         ]);
 
         foreach ($this->answers as $questionId => $selected) {
-            // $selected is either an int (single) or array (multiple)
-            // Example: save to DB, validate, etc.
-            // You can check if it's an array:
+            // $selected is either an int (single), array (multiple), or empty array (skipped)
             if (is_array($selected)) {
-                // Multi-select: $selected is an array of option IDs
                 $attempt->choices()->create([
                     'question_id' => $questionId,
                     'selected_options' => $selected,
                 ]);
+            } elseif ($selected === null) {
+                $attempt->choices()->create([
+                    'question_id' => $questionId,
+                    'selected_options' => [],
+                ]);
             } else {
-                // Single-select: $selected is the option ID
                 $attempt->choices()->create([
                     'question_id' => $questionId,
                     'selected_options' => [$selected],
