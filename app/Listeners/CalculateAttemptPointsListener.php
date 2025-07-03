@@ -27,6 +27,9 @@ class CalculateAttemptPointsListener // implements ShouldQueue
         foreach ($quiz->questions as $question) {
             $temp = 0;
             $questionChoice = $choices->where('question_id', $question->id)->first();
+            if (!$questionChoice?->selected_options) {
+                continue; // Skip if no choice was made for this question
+            }
             $selectedOptions = $questionChoice->selected_options;
             $temp += $this->getPointsForCorrectChoices($question, $selectedOptions);
             $temp -= $this->getNegativePointsForWronglySelectedChoices($question, $selectedOptions);
@@ -40,7 +43,7 @@ class CalculateAttemptPointsListener // implements ShouldQueue
         ]);
     }
 
-    public function getPointsForCorrectChoices(mixed $question, array $selectedOptions): mixed
+    public function getPointsForCorrectChoices(mixed $question, array $selectedOptions): float|int
     {
         return $question->options
             ->where('is_correct', true)
@@ -49,7 +52,7 @@ class CalculateAttemptPointsListener // implements ShouldQueue
             ->sum();
     }
 
-    public function getMissedPointsForNotSelectedCorrectOptions(mixed $question, array $selectedOptions): mixed
+    public function getMissedPointsForNotSelectedCorrectOptions(mixed $question, array $selectedOptions): float|int
     {
         return $question->options
             ->where('is_correct', true)
@@ -58,11 +61,16 @@ class CalculateAttemptPointsListener // implements ShouldQueue
             ->sum();
     }
 
-    private function getNegativePointsForWronglySelectedChoices(mixed $question, array $selectedOptions)
+    private function getNegativePointsForWronglySelectedChoices(mixed $question, array $selectedOptions): float|int
     {
+        $averagePoints = $question->options
+            ->where('is_correct', false)
+            ->pluck('points')
+            ->avg();
+
         return $question->options
             ->where('is_correct', false)
             ->whereIn('id', $selectedOptions)
-            ->count();
+            ->count() * $averagePoints;
     }
 }
