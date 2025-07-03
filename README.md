@@ -22,6 +22,7 @@ This project is built with Laravel and Filament PHP.
    ```sh
    git clone https://github.com/hussamitani/trivia.git
    cd your-repo
+   cp .env.example .env
    ```
 2. Install composer packages
    ```sh
@@ -55,7 +56,7 @@ This project is built with Laravel and Filament PHP.
    >
    > password
 9. Try out the Quizzes.  
-   Go to https://trivia.docker.localhost/login/quizzes and play any of the quizzes.
+   Go to https://trivia.docker.localhost/quizzes and play any of the quizzes.
 
 ## Score calculation
 I implemented the `final_score` calculation into the [CalculateAttemptPointsListener](app/Listeners/CalculateAttemptPointsListener.php).
