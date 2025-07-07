@@ -31,13 +31,11 @@ This project is built with Laravel and Filament PHP.
 3. Generate certificates using [mkcert](https://github.com/FiloSottile/mkcert) :
    If it's the first install of mkcert, run
    ```sh
-   cd traefik
    mkcert -install
    ```
 4. Generate local SSL keys
    ```sh
-   cd traefik
-   mkcert -cert-file certs/local-cert.pem -key-file certs/local-key.pem "trivia.docker.localhost"
+   mkcert -cert-file traefik/certs/local-cert.pem -key-file certs/local-key.pem "trivia.docker.localhost"
    ```
 5. Start Docker Container
    ```sh
